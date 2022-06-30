@@ -1,23 +1,21 @@
+import pdfminer
+from pdfminer.high_level import extract_pages
 import streamlit as st
-import pandas as pd
-import os
-import docx2txt
-import pdfplumber
+from io import BytesIO
 
+# st.write(pdfminer.__version__)  
 
 def app():
-    st.title("Contribute here!")
-    st.markdown("Feel free to upload your notes, programs which will be reviewed and displayed on the app!")
-    docx_file = st.file_uploader("Upload Document", type=["pdf","docx","txt"])
+    st.write("Upload your notes in PDF format.")
+    uploaded_file = st.file_uploader("Choose a file", "pdf")
 
-    if docx_file is not None:
-        file_details = {"filename":docx_file.name, "filetype":docx_file.type,"filesize":docx_file.size}
-        st.write(file_details)
-
-
-    with open(os.path.join("files_upload",docx_file.name),"wb") as f:
-        f.write((docx_file).getbuffer())
-
-    st.success("File Saved")
-
-
+    if uploaded_file is not None:
+        byteObject = uploaded_file.getvalue()
+        with open('temp.pdf', 'wb') as f:
+            f.write(byteObject)
+        
+        # for page_layout in extract_pages(uploaded_file):
+        #     for element in page_layout:
+        #         st.write(element)
+        st.write("Uploaded Successfully!")
+    
