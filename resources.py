@@ -1,11 +1,15 @@
 import base64
 import streamlit as st
 import os
+import env
+
+def notes(filename):
+    return os.path.join(env.notesPath, filename) 
+
 
 def app():
     st.title("Refer this amazing notes!!")
-    path=r"E:\\python practice\\streamlit\\notes\\intro_to_java.pdf"
-    assert os.path.isfile(path)
+    path=notes("intro_to_java.pdf")
     with st.expander("Introduciton to Java"):
         def show_pdf(file_path):
             with open(path,"rb") as f:
@@ -17,7 +21,7 @@ def app():
         show_pdf('array_arraylist.pdf')
 
 
-    path2=r"E:\\python practice\\streamlit\\notes\\First_Java_Program_Notes.pdf"
+    path2=notes("First_Java_Program_Notes.pdf")
     assert os.path.isfile(path)
     with st.expander("First Java Program"):
         def show_pdf2(file_path):
@@ -29,7 +33,7 @@ def app():
 
         show_pdf2('array_arraylist.pdf')
 
-    path2=r"E:\\python practice\\streamlit\\notes\\Conditionals_And_Loops.pdf"
+    path2=notes("Conditionals_And_Loops.pdf")
     assert os.path.isfile(path)
     with st.expander("Conditional ans Loops"):
         def show_pdf2(file_path):
@@ -41,7 +45,7 @@ def app():
 
         show_pdf2('array_arraylist.pdf')
 
-    path2=r"E:\\python practice\\streamlit\\notes\\functions_methods.pdf"
+    path2=notes("functions_methods.pdf")
     assert os.path.isfile(path)
     with st.expander("Methods in Java"):
         def show_pdf2(file_path):
@@ -53,7 +57,7 @@ def app():
 
         show_pdf2('array_arraylist.pdf')
 
-    path1=r"E:\\python practice\\streamlit\\notes\\array_arraylist.pdf"
+    path1=notes("array_arraylist.pdf")
     assert os.path.isfile(path)
     with st.expander("Arrays and ArrayList in Java"):
         def show_pdf1(file_path):
@@ -65,7 +69,7 @@ def app():
 
         show_pdf1("array_arraylist.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\linear_search.pdf"
+    path1=notes("linear_search.pdf")
     assert os.path.isfile(path)
     with st.expander("Linear Search"):
         def show_pdf1(file_path):
@@ -77,7 +81,7 @@ def app():
 
         show_pdf1("linear_search.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\binary_search.pdf"
+    path1=notes("binary_search.pdf")
     assert os.path.isfile(path)
     with st.expander("Binary Search"):
         def show_pdf1(file_path):
@@ -89,7 +93,7 @@ def app():
 
         show_pdf1("linear_search.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\insertion_sort.pdf"
+    path1=notes("insertion_sort.pdf")
     assert os.path.isfile(path)
     with st.expander("Insertion Sort"):
         def show_pdf1(file_path):
@@ -101,7 +105,7 @@ def app():
 
         show_pdf1("linear_search.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\selection_sort.pdf"
+    path1=notes("selection_sort.pdf")
     assert os.path.isfile(path)
     with st.expander("Selecction Sort"):
         def show_pdf1(file_path):
@@ -113,7 +117,7 @@ def app():
 
         show_pdf1("selection_sort.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\bubble_sort.pdf"
+    path1=notes("bubble_sort.pdf")
     assert os.path.isfile(path)
     with st.expander("Bubble Sort"):
         def show_pdf1(file_path):
@@ -125,7 +129,7 @@ def app():
 
         show_pdf1("bubble_sort.pdf")
 
-    path1=r"E:\\python practice\\streamlit\\notes\\strings.pdf"
+    path1=notes("strings.pdf")
     assert os.path.isfile(path)
     with st.expander("Strings in Java"):
         def show_pdf1(file_path):
