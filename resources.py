@@ -10,6 +10,7 @@ def notes(filename):
 def app():
     st.title("Refer this amazing notes!!")
     path=notes("intro_to_java.pdf")
+    print("note  -->", path)
     with st.expander("Introduciton to Java"):
         def show_pdf(file_path):
             with open(path,"rb") as f:
