@@ -10,16 +10,20 @@ def notes(filename):
 def app():
     st.title("Refer this amazing notes!!")
     path=notes("intro_to_java.pdf")
-    print("note  -->", path)
+    # print("note  -->", path)
+    # with st.expander("Introduciton to Java"):
+    #     st.write("[Introduciton to Java](path)")
     with st.expander("Introduciton to Java"):
-        def show_pdf(file_path):
+        def show_pdf2(file_path):
             with open(path,"rb") as f:
                 base64_pdf = base64.b64encode(f.read()).decode('utf-8')
             
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="670" height="750" type="application/pdf"></iframe>'
+            pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="670" height="750" type="application/pdf">'
             st.markdown(pdf_display, unsafe_allow_html=True)
+        
+        show_pdf2("intro_to_java.pdf")
 
-        show_pdf('array_arraylist.pdf')
+
 
 
     path2=notes("First_Java_Program_Notes.pdf")
@@ -29,7 +33,7 @@ def app():
             with open(path2,"rb") as f:
                 base64_pdf = base64.b64encode(f.read()).decode('utf-8')
             
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="670" height="750" type="application/pdf"></iframe>'
+            pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="670" height="750" type="application/pdf">'
             st.markdown(pdf_display, unsafe_allow_html=True)
 
         show_pdf2('array_arraylist.pdf')
